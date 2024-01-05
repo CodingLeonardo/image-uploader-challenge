@@ -1,0 +1,67 @@
+.ImageUploader {
+  width: 402px;
+  background-color: #fff;
+  padding: 2em 1.8em;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 12px 0px #0000001a;
+  text-align: center;
+}
+
+.ImageUploader-title {
+  color: #4f4f4f;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.63px;
+  margin-bottom: 16px;
+}
+
+.ImageUploader-detail {
+  color: #828282;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.35px;
+  margin-bottom: 30px;
+}
+
+.ImageUploader-dragdrop {
+  border-radius: 12px;
+  border: 1px dashed #97bef4;
+  background: #f6f8fb;
+  padding: 2em 1.5em;
+  margin-bottom: 18px;
+}
+
+.ImageUploader-dragdrop img {
+  margin-bottom: 30px;
+}
+
+.ImageUploader-dragdrop h3 {
+  color: #bdbdbd;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+}
+
+.ImageUploader p {
+  color: #bdbdbd;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+  margin-bottom: 22px;
+}
+
+.ImageUploader-button {
+  background-color: #2f80ed;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.42px;
+  padding: 8px 16px;
+}
+
+.ImageUploader input {
+  display: none;
+}
