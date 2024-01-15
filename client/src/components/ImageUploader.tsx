@@ -1,72 +1,71 @@
-import { ChangeEvent, DragEventHandler, FormEvent, useState } from "react"
-import axios from "axios";
-import FormImageUploader from "./FormImageUploader";
-import ImageUploaded from "./ImageUploaded";
+import { DragEvent, FormEvent, useState } from "react"
+import axios, { AxiosProgressEvent } from "axios";
+import Form from "./Form";
+import Uploaded from "./Uploaded";
 import "../styles/ImageUploader.css"
-
-type FileEvent = ChangeEvent<HTMLInputElement> & {
-  target: EventTarget & { files: FileList };
-};
+import { FileEvent } from "./types";
+import Progress from "./Progress";
 
 const ImageUploader = () => {
   const [image, setImage] = useState("")
   const [progress, setProgress] = useState(false)
   const [uploaded, setUploaded] = useState(false)
+  const [error, setError] = useState<Error>()
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault()
-  }
-
-  const postImage = async (image) => {
+  const postImage = (image: File) => {
     const formData = new FormData()
     formData.append("image", image)
     axios.post("http://localhost:8000/image/upload", formData, {
-      onUploadProgress: (progressEvent) => {
-        const { loaded, total } = progressEvent;
+      onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+        const { loaded, total = 0 } = progressEvent;
         let precentage = Math.floor((loaded * 100) / total);
         console.log("options");
         console.log(precentage);
         if (precentage < 100) {
           setProgress(true)
+        } else {
+          setUploaded(true)
         }
-        setUploaded(true)
       },
     }).then((request) => {
       console.log(request);
       setImage(`http://localhost:8000/image/${request.data.filename}`)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
+      setError(err)
       setProgress(false)
       setUploaded(false)
     })
   }
 
-  const handleChange = (event: FileEvent) => {
-    const file = event.target.files[0]
-    if(!event.target.files) {
-      console.log("No hay Files!");
-    }
-    postImage(file)
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
   }
 
-  const handleDrop = (event) => {
-    const file = event.dataTransfer.files[0]
-    if(!event.dataTransfer.files) {
-      console.log("No hay Files!");
+  const handleChange = (event: FileEvent) => {
+    const image: File = event.target.files[0]
+    if(event.target.files.length) {
+      postImage(image)
     }
-    postImage(file)
+  }
+
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
+    const image: File = event.dataTransfer.files[0]
+    if(event.dataTransfer.files.length) {
+      postImage(image)
+    }
   }
 
   if(progress) {
-    return <div>Uploading...</div>
+    return <Progress />
   }
 
   if(uploaded){
-    return <ImageUploaded img={image} />
+    return <Uploaded img={image} />
   }
 
   return (
-    <FormImageUploader onSubmit={handleSubmit} onChange={handleChange} onDrop={handleDrop} />
+    <Form onSubmit={handleSubmit} onChange={handleChange} onDrop={handleDrop} />
   )
 }
 
