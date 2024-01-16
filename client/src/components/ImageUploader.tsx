@@ -8,9 +8,8 @@ import Progress from "./Progress";
 
 const ImageUploader = () => {
   const [image, setImage] = useState("")
-  const [progress, setProgress] = useState(false)
+  const [progress, setProgress] = useState<boolean>(false)
   const [uploaded, setUploaded] = useState(false)
-  const [error, setError] = useState<Error>()
 
   const postImage = (image: File) => {
     const formData = new FormData()
@@ -18,21 +17,18 @@ const ImageUploader = () => {
     axios.post("http://localhost:8000/image/upload", formData, {
       onUploadProgress: (progressEvent: AxiosProgressEvent) => {
         const { loaded, total = 0 } = progressEvent;
-        let precentage = Math.floor((loaded * 100) / total);
-        console.log("options");
-        console.log(precentage);
-        if (precentage < 100) {
+        let percentage = Math.floor((loaded * 100) / total);
+        if (percentage < 100) {
           setProgress(true)
         } else {
+          setProgress(false)
           setUploaded(true)
         }
       },
-    }).then((request) => {
-      console.log(request);
-      setImage(`http://localhost:8000/image/${request.data.filename}`)
+    }).then(({ data }) => {
+      setImage(`http://localhost:8000/image/${data.filename}`)
     })
     .catch((err: Error) => {
-      setError(err)
       setProgress(false)
       setUploaded(false)
     })
@@ -54,6 +50,7 @@ const ImageUploader = () => {
     if(event.dataTransfer.files.length) {
       postImage(image)
     }
+    event.preventDefault()
   }
 
   if(progress) {

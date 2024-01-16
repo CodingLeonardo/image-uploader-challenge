@@ -1,12 +1,10 @@
-import React, { DragEventHandler } from "react"
+import { DragEvent } from "react"
 import Image from "../assets/image.svg"
-
-interface DragAndDropProps { handleDragging: (dragging: boolean) => void,
-  handleDrop: any }
+import { DragAndDropProps } from "./types"
 
 const DragAndDrop = ({ handleDragging, handleDrop }: DragAndDropProps) => {
-  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData('text', "hola")
+  const handleDragStart = (event: DragEvent<HTMLDivElement>) => {
+    event.dataTransfer.setData('text', "hola")
     handleDragging(true)
   }
 
