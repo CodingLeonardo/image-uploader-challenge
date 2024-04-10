@@ -1,26 +1,13 @@
-.App-imageuploader__section,
-.App-footer {
+#app {
+  display: grid;
+  grid-template-rows: 4em 1fr;
+  height: 100vh;
+}
+
+main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.App-imageuploader__section {
-  width: 100%;
-  height: calc(100vh - 2em);
-}
-
-.App-footer {
-  height: 2em;
-  font-weight: 500;
-  font-size: 0.65em;
-  color: #a9a9a9;
-}
-
-.App-footer a {
-  color: #a9a9a9;
-  text-decoration: none;
-  font-weight: 700;
-  text-decoration-line: underline;
-  margin: 0 0.2em;
+  height: 100%;
+  background-color: #f9fafc;
 }

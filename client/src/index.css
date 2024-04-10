@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --light-primary: #f9fafc;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fafafb;
@@ -11,4 +15,14 @@ body {
 
 footer {
   font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  height: inherit;
+  flex-wrap: inherit;
 }
