@@ -1,69 +1,49 @@
-import { DragEvent, FormEvent, useState } from "react"
-import axios, { AxiosProgressEvent } from "axios";
-import Form from "./Form";
-import Uploaded from "./Uploaded";
-import "../styles/ImageUploader.css"
+import { DragEvent, FC, FormEvent } from "react";
+// import Form from "./Form";
+import DragAndDrop from "./DragAndDrop";
+// import Uploaded from "./Uploaded";
 import { FileEvent } from "./types";
-import Progress from "./Progress";
+// import Progress from "./Progress";
+import Exit from "../assets/exit.svg";
 
-const ImageUploader = () => {
-  const [image, setImage] = useState("")
-  const [progress, setProgress] = useState<boolean>(false)
-  const [uploaded, setUploaded] = useState(false)
+import "../styles/ImageUploader.css";
 
-  const postImage = (image: File) => {
-    const formData = new FormData()
-    formData.append("image", image)
-    axios.post("http://localhost:8000/image/upload", formData, {
-      onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-        const { loaded, total = 0 } = progressEvent;
-        let percentage = Math.floor((loaded * 100) / total);
-        if (percentage < 100) {
-          setProgress(true)
-        } else {
-          setProgress(false)
-          setUploaded(true)
-        }
-      },
-    }).then(({ data }) => {
-      setImage(`http://localhost:8000/image/${data.filename}`)
-    })
-    .catch((err: Error) => {
-      setProgress(false)
-      setUploaded(false)
-    })
-  }
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault()
-  }
-
-  const handleChange = (event: FileEvent) => {
-    const image: File = event.target.files[0]
-    if(event.target.files.length) {
-      postImage(image)
-    }
-  }
-
-  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
-    const image: File = event.dataTransfer.files[0]
-    if(event.dataTransfer.files.length) {
-      postImage(image)
-    }
-    event.preventDefault()
-  }
-
-  if(progress) {
-    return <Progress />
-  }
-
-  if(uploaded){
-    return <Uploaded img={image} />
-  }
-
-  return (
-    <Form onSubmit={handleSubmit} onChange={handleChange} onDrop={handleDrop} />
-  )
+interface ImageUploaderProps {
+  onSubmit: (event: FormEvent) => void;
+  onChange: (event: FileEvent) => void;
+  onDrop: (event: DragEvent<HTMLDivElement>) => void;
 }
 
-export default ImageUploader
+const ImageUploader: FC<ImageUploaderProps> = ({
+  onSubmit,
+  onChange,
+  onDrop,
+}) => {
+  return (
+    <form className="ImageUploader" onSubmit={onSubmit}>
+      <DragAndDrop
+        className="ImageUploader-dragdrop"
+        handleDragging={() => "hola"}
+        handleDrop={onDrop}
+      >
+        <div className="ImageUploader-img">
+          <img src={Exit} alt="Exit" />
+        </div>
+        <div className="ImageUploader-text">
+          <h3>Drag & drop a file or</h3>
+          <input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/png image/jpg image/jpeg image/svg .png,.jpg,.jpeg"
+            onChange={onChange}
+          />
+          <label htmlFor="image">browse files</label>
+          <p>JPG, PNG or GIF - Max file size 2MB</p>
+        </div>
+      </DragAndDrop>
+    </form>
+  );
+};
+
+export default ImageUploader;
