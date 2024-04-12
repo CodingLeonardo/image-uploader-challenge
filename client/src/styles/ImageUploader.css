@@ -96,7 +96,7 @@
   margin-bottom: 22px;
 } */
 
-/* .ImageUploader-button {
+.ImageUploader-button {
   background-color: #2f80ed;
   color: white;
   border-radius: 8px;
@@ -180,37 +180,3 @@
   margin: 0.2em;
   cursor: pointer;
 }
-
-.ImageUploader.progress {
-  padding: 2em 2.5em;
-}
-
-.progress .ImageUploader-title {
-  text-align: left;
-}
-
-.bar-progress {
-  background-color: #f2f2f2;
-  height: 6px;
-  border-radius: 8px;
-  margin-top: 30px;
-  overflow: hidden;
-}
-
-.bar-progress div {
-  position: relative;
-  background-color: #2f80ed;
-  height: 100%;
-  width: 30%;
-  left: -35%;
-  animation: loading infinite 1.5s ease-in-out;
-}
-
-@keyframes loading {
-  from {
-    left: -35%;
-  }
-  to {
-    left: 100%;
-  }
-} */

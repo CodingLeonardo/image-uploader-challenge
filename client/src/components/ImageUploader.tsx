@@ -1,24 +1,33 @@
 import { DragEvent, FC, FormEvent } from "react";
-// import Form from "./Form";
 import DragAndDrop from "./DragAndDrop";
-// import Uploaded from "./Uploaded";
-import { FileEvent } from "./types";
-// import Progress from "./Progress";
+import ImageUploaded from "./ImageUploaded";
+import Progress from "./Progress";
+import { FileEvent, UploadedResponse } from "./types";
 import Exit from "../assets/exit.svg";
 
 import "../styles/ImageUploader.css";
 
 interface ImageUploaderProps {
+  progress: boolean;
+  uploaded?: UploadedResponse;
   onSubmit: (event: FormEvent) => void;
   onChange: (event: FileEvent) => void;
   onDrop: (event: DragEvent<HTMLDivElement>) => void;
 }
 
 const ImageUploader: FC<ImageUploaderProps> = ({
+  progress,
+  uploaded,
   onSubmit,
   onChange,
   onDrop,
 }) => {
+  if (progress) {
+    return <Progress />;
+  }
+  if (uploaded) {
+    return <ImageUploaded img={uploaded} />;
+  }
   return (
     <form className="ImageUploader" onSubmit={onSubmit}>
       <DragAndDrop
