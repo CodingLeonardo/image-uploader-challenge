@@ -7,6 +7,8 @@
   background-color: var(--border-img);
   border-radius: 0.3em;
   box-shadow: 0px 4px 12px 0px #0000001a;
+  transition: var(--transition-duration);
+  will-change: background-color;
 }
 
 .ImageUploaded-image img {
