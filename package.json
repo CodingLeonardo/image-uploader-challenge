@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "pnpm run --parallel dev",
+    "dev:vercel": "concurrently -n api,client \"vercel dev\" \"pnpm --filter client dev\"",
     "build:api": "pnpm --filter api build",
     "build:client": "pnpm --filter client build",
     "start:api": "pnpm --filter api start",
@@ -12,5 +13,9 @@
   },
   "keywords": [],
   "author": "@CodingLeonardo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "8.2.2",
+    "vercel": "34.0.0"
+  }
 }
