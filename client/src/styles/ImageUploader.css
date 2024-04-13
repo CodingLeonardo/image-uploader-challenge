@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 595px;
   height: 372px;
-  background-color: #fff;
+  background-color: var(--secondary);
   padding: 0.5em;
   border-radius: 0.5em;
   box-shadow: 0px 4px 12px 0px #0000001a;
@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: dashed 2px #e5e7eb;
+  border: dashed 2px var(--border-dashed);
   border-radius: 0.5em;
   padding: 1em;
   user-select: none;
@@ -30,7 +30,7 @@
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #121826;
+  color: var(--text);
   margin-right: 0.25em;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .ImageUploader-text p {
-  color: #121826;
+  color: var(--text);
   font-size: 0.75rem;
   font-weight: 300;
   margin-top: 0.8em;

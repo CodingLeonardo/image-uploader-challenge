@@ -6,10 +6,28 @@
   box-sizing: border-box;
 }
 
-:root {
-  --light-primary: #f9fafc;
+html {
+  --primary: #f9fafc;
+  --secondary: #ffffff;
+  --header-border: #e5e7eb;
+  --header-logo: #121826;
+  --switch-theme: #ffffff;
+  --border-dashed: #e5e7eb;
+  --border-img: #f9fafb;
+  --text: #121826;
 }
 
+html.dark {
+  color-scheme: dark;
+  --primary: #121826;
+  --secondary: #212936;
+  --header-border: #212936;
+  --header-logo: #f9fafb;
+  --switch-theme: #4d5562;
+  --border-dashed: #4d5562;
+  --border-img: #212936;
+  --text: #f9fafbcc;
+}
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

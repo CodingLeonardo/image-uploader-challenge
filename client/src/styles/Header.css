@@ -3,18 +3,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
-  border-bottom: 1px solid rgb(0 0 0 / 10%);
-  background-color: var(--light-primary);
+  border-bottom: 1px solid var(--header-border);
+  background-color: var(--primary);
 }
 
 .Header-logo {
   display: flex;
 }
 
-.Header-button {
+.Header-logo__text {
+  fill: var(--header-logo);
+}
+
+.Header-switch__theme {
   display: flex;
   border: 1px solid rgb(0 0 0 / 10%);
   border-radius: 0.5em;
-  background-color: white;
+  background-color: var(--switch-theme);
   padding: 0.4em;
+  cursor: pointer;
 }
