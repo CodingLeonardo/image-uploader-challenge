@@ -15,6 +15,7 @@ html {
   --border-dashed: #e5e7eb;
   --border-img: #f9fafb;
   --text: #121826;
+  --transition-duration: 0.2s;
 }
 
 html.dark {

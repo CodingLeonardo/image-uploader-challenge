@@ -10,4 +10,6 @@ main {
   align-items: center;
   height: 100%;
   background-color: var(--primary);
+  transition: var(--transition-duration);
+  will-change: background-color;
 }

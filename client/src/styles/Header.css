@@ -5,6 +5,8 @@
   padding: 1em 0;
   border-bottom: 1px solid var(--header-border);
   background-color: var(--primary);
+  transition: var(--transition-duration);
+  will-change: background-color border-color;
 }
 
 .Header-logo {
@@ -13,6 +15,8 @@
 
 .Header-logo__text {
   fill: var(--header-logo);
+  transition: var(--transition-duration);
+  will-change: fill;
 }
 
 .Header-switch__theme {
@@ -20,6 +24,8 @@
   border: 1px solid rgb(0 0 0 / 10%);
   border-radius: 0.5em;
   background-color: var(--switch-theme);
+  transition: var(--transition-duration);
+  will-change: background-color;
   padding: 0.4em;
   cursor: pointer;
 }
