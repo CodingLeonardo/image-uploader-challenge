@@ -1,16 +1,9 @@
 {
-  "version": 2,
+  "devCommand": "pnpm run dev",
   "builds": [
     {
-      "src": "dist/index.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
-    }
-  ],
-  "routes": [
-    {
-      "src": "./(.*)",
-      "dest": "dist/index.js"
+      "src": "src/index.ts",
+      "use": "@vercel/node"
     }
   ]
 }
