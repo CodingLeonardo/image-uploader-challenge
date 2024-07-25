@@ -9,14 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^20.14.12",
     "@vercel/blob": "^0.23.4",
-    "@vercel/node": "^3.2.7",
     "axios": "1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.14.12",
     "@types/react": "18.2.43",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.14.0",
@@ -26,6 +25,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.5",
     "typescript": "5.2.2",
-    "vite": "5.0.8"
+    "vite": "5.0.8",
+    "vite-plugin-vercel": "^8.0.0"
   }
 }
