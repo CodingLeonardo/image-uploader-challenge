@@ -20,12 +20,9 @@ export type DragAndDropProps = {
 };
 
 export type UploadedResponse = {
-  destination: string;
-  encoding: string;
-  fieldname: string;
-  filename: string;
-  mimetype: string;
-  originalname: string;
-  path: string;
-  size: number;
+  pathname: string;
+  contentType: string;
+  contentDisposition: string;
+  url: string;
+  downloadUrl: string;
 };

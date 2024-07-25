@@ -14,7 +14,7 @@ const App = () => {
     const formData = new FormData();
     formData.append("image", image);
     axios
-      .post("http://localhost:8000/image/upload", formData, {
+      .post("/api/upload", formData, {
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
           const { loaded, total = 0 } = progressEvent;
           const percentage = Math.floor((loaded * 100) / total);
