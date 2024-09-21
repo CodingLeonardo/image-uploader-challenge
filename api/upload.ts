@@ -2,10 +2,6 @@ import { put } from "@vercel/blob";
 
 const getExtension = (str: string) => str.slice(str.lastIndexOf("."));
 
-export const config = {
-  runtime: "edge",
-};
-
 export async function POST(request: Request) {
   const form = await request.formData();
   const file = form.get("image") as File;

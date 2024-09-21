@@ -1,5 +1,5 @@
 import { useState, DragEvent, FormEvent } from "react";
-import axios, { AxiosProgressEvent } from "axios";
+import axios from "axios";
 import Header from "./components/Header";
 import ImageUploader from "./components/ImageUploader";
 import { FileEvent, UploadedResponse } from "./components/types";
@@ -15,9 +15,7 @@ const App = () => {
     formData.append("image", image);
     axios
       .post("/api/upload", formData, {
-        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          // const { loaded, total = 0 } = progressEvent;
-          // const percentage = Math.floor((loaded * 100) / total);
+        onUploadProgress: () => {
           setProgress(true);
         },
       })
