@@ -16,11 +16,9 @@ const App = () => {
     axios
       .post("/api/upload", formData, {
         onUploadProgress: (progressEvent: AxiosProgressEvent) => {
-          const { loaded, total = 0 } = progressEvent;
-          const percentage = Math.floor((loaded * 100) / total);
-          if (percentage < 100) {
-            setProgress(true);
-          }
+          // const { loaded, total = 0 } = progressEvent;
+          // const percentage = Math.floor((loaded * 100) / total);
+          setProgress(true);
         },
       })
       .then(({ data }) => {
