@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# Image Uploader Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Image Uploader challenge on DevChallenges.io](devchallenges.io). DevChallenges.io help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### The challenge
 
-- Configure the top-level `parserOptions` property like this:
+In full-stack development, a common task involves working with files. This challenge presents an opportunity to create a straightforward Image Upload application, enabling users to upload images.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Screenshot
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![](./screenshot.png)
+
+### Links
+
+- [Solution URL](https://devchallenges.io/solution/14495)
+- [Live Site URL](https://image-uploader-challenge-phi.vercel.app)
+
+## My process
+
+### Built with
+
+- [Typescript](https://www.typescriptlang.org/) - Superset of JavaScript which adds static typing
+- [React](https://reactjs.org/) - JS library
+- [Vite](https://vite.dev/) - Next Generation Web Packager
+- [Vercel Serverless Functions](https://vercel.com/docs/functions)
+
+### Useful resources
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS) - This helped me learn how filters work in css.
+- [Vercel Docs](https://vercel.com/docs) - All documentation of Vercel products
+
+## Author
+
+- Website - [Leonardo Rivero](https://codingleonardo.github.io/)
+- DevChallenges.io - [@CodingLeonardo](https://devchallenges.io/profile/8c0bdef8-0f64-4c92-8640-bcae8d05fb4b)
+- Twitter - [@CodingLeonardo](https://www.twitter.com/CodingLeonardo)
